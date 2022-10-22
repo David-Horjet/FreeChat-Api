@@ -1,23 +1,5 @@
 const Users = require("../models/userModel");
 
-// GET ALL USERS
-
-const allUsers = async (req, res, next) => {
-     try {
-          const users = await Users.find().select([
-               "username",
-               "email",
-               "image",
-               "createdAt",
-               "updatedAt",
-               "_id"
-          ])
-          return res.json(users);
-     } catch (error) {
-          next(error)
-     }
-}
-
 // GET ALL USERS EXCEPT ONE
 
 const idUsers = async (req, res, next) => {
@@ -164,7 +146,6 @@ const deleteUser = async (req, res) => {
 }
 
 module.exports = {
-     allUsers,
      getUser,
      idUsers,
      updateUser,

@@ -3,7 +3,6 @@ const userRouter = require("express").Router();
 const userController = require("../controllers/userController");
 const { loginRequired } = require("../middlewares/auth");
 
-userRouter.get('/all', userController.allUsers);
 userRouter.get('/all/:id', userController.idUsers);
 userRouter.post('/users/:id', loginRequired);
 userRouter.get('/:username', userController.getUser);

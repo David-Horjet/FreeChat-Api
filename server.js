@@ -12,6 +12,9 @@ const {
      userRouter
 } = require("./routes/userRoute");
 const {
+     adminRouter
+} = require("./routes/adminRoute");
+const {
      messageRouter
 } = require("./routes/messagesRoute");
 const {
@@ -39,6 +42,7 @@ app.use((req, res, next) => {
 
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
+app.use("/api/admin", adminRouter);
 app.use("/api/messages", messageRouter);
 app.use('/', mainRouter);
 
