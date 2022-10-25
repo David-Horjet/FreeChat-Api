@@ -26,13 +26,11 @@ const {
 
 PORT = process.env.PORT;
 dbURI = process.env.dbURI;
+const offlineClient = "http://localhost:3000";
+const onlineClient = "https://freechat-alpha.vercel.app";
 
 const app = express();
 
-app.use((req, res, next) => {
-     res.header('Access-Control-Allow-Origin', '*');
-     next();
-});
 app.use(newSession);
 app.use(express.json());
 app.use(cors());
@@ -66,7 +64,7 @@ const server = app.listen(PORT, (req, res) => {
 
 const io = socket(server, {
      cors: {
-          origin: "http://localhost:3000",
+          origin: offlineClient || onlineClient,
           credentials: true,
      },
 });
